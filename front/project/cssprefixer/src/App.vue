@@ -10,7 +10,6 @@
 </template>
 
 <script>
-    import utils from '../../../public/js/utils';
     import request from '../../../public/js/request';
     export default {
         name: "App",
@@ -25,7 +24,8 @@
         },
         methods: {
             onTransfer() {
-                let url = 'http://localhost:8100/rest/utils/cssprefixer';
+                let host_url = process.env.NODE_ENV === 'production'? '' : 'http://localhost:8200';
+                let url = host_url + '/rest/utils/cssprefixer';
                 request(url, {
                     method: 'post',
                     data: {text: this.text}

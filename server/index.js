@@ -14,7 +14,7 @@ global.cache = cache;   // 缓存对象
 global.cacheDeadline = 60*24*3; // 有效期3天，单位s
 
 // 端口号
-const port = 8100;
+const port = 8200;
 
 const app = express();
 
