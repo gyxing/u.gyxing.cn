@@ -45,6 +45,7 @@
     .main {
         width: 800px;
         margin: 30px auto 0;
+        font-size: 14px;
         .title {
             font-size: 18px;
             padding: 15px 0;
