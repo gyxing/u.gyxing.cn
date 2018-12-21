@@ -32,7 +32,7 @@
                 }).then( ret => {
                     if (ret.code === 0) {
                         let data = ret.data;
-                        data = data.replace(/\n/g, '').replace(/ /g, '').replace(/;/g, ';\n');
+                        data = data.replace(/\n/g, '').replace(/ /g, '').replace(/;/g, ';\n').replace(/:/g, ': ');
                         this.result = data;
                     }
                 })
