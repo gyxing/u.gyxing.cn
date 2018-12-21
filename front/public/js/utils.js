@@ -50,24 +50,5 @@ export default {
     },
     isEmptyObject: (obj) => {
         return Object.keys(obj).length === 0 && obj.constructor === Object
-    },
-    isIOS() {
-        return /ip(hone|od|ad)/i.test(window.navigator.userAgent);
-    },
-    setDocumentTitle(title) {
-        let doc = window.document;
-        doc.title = title;
-        if (this.isIOS()) {
-            let i = doc.createElement('iframe');
-            i.src = '/favicon.ico';
-            i.style.display = 'none';
-            i.onload = function () {
-                setTimeout(function () {
-                    i.remove();
-                    i = null;
-                }, 9);
-            };
-            doc.body.appendChild(i);
-        }
     }
 }

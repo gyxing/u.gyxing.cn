@@ -1,9 +1,5 @@
 const path = require("path");
-/**
- * 本项目需要用到的个别配置
- * @param env 命令行传过来的环境参数
- * @param options 扩展参数 方便增加参数
- */
+
 module.exports = function(env, options) {
     return {
         entry: {
@@ -18,4 +14,3 @@ module.exports = function(env, options) {
         plugins: []
     };
 };
-        

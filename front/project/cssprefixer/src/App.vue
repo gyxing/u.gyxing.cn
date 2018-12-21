@@ -21,7 +21,7 @@
             }
         },
         created() {
-            utils.setDocumentTitle('CSS添加浏览器前缀')
+            document.title = 'CSS添加浏览器前缀';
         },
         methods: {
             onTransfer() {
