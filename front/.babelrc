@@ -1,0 +1,17 @@
+{
+    "presets": [
+        ["env", { "modules": false }],
+        "stage-2"
+    ],
+    "plugins": [
+        "transform-runtime",
+        "syntax-dynamic-import",
+        "transform-object-assign"
+    ],
+    "comments":false,
+    "env": {
+        "development": {
+            "presets": ["env", "stage-2"]
+        }
+    }
+}
