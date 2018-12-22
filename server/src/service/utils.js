@@ -10,10 +10,10 @@ const ExampleService = new class extends BaseService {
         super();
     }
     getCssPreFixer(req, res) {
-        let text = req.body.text;
+        let {text, browsers} = req.body;
         if (text) {
             let params = {
-                browsers: ["last 2 versions"]
+                browsers: browsers || ["last 2 versions"]
             };
             postcss([ autoprefixer(params) ]).process(text).then( (result) => {
                 result.warnings().forEach( (warn) => {

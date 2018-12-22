@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
  * @api {POST} /utils/cssprefixer css加前缀
  * @apiDescription css加前缀
  * @apiName cssprefixer
- * @apiParam {String} text body，名称
+ * @apiParam {String} text body，css文本
+ * @apiParam {String} browsers body，规则
  * @apiSampleRequest /utils/cssprefixer
  * @apiGroup utils
  * @apiVersion 1.0.0
