@@ -5,11 +5,10 @@ module.exports = function(env, options) {
         entry: {
             index: path.resolve(__dirname, "./src/main.js")
         },
-        index_title: "Demo",
         html_name: "",
         template: "",
-        product_dir: path.resolve(__dirname,"../../../dist/cssprefixer"),
-        product_html_dir: path.resolve(__dirname,"../../../dist/cssprefixer"),
+        product_dir: path.resolve(__dirname,"../../../dist/short"),
+        product_html_dir: path.resolve(__dirname,"../../../dist/short"),
         product_public_path: "",
         plugins: []
     };
