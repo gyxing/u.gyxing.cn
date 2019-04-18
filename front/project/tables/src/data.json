@@ -1,0 +1,134 @@
+[
+    {
+        "name": "Category 类目信息",
+        "table": {
+            "name": "类目名称",
+            "image": "图标地址",
+            "pid": "上级pid",
+            "description": "描述",
+            "sort": "序号（升序排序）"
+        }
+    },
+    {
+        "name": "Commodity 商品信息",
+        "table": {
+            "name": "商品名称",
+            "sku_name": "展示用商品名称（如：名称+规格+其他描述）",
+            "code": "商品码",
+            "price": "售价",
+            "cost_price": "进货价",
+            "activities": "活动信息集合 List<CommodityActivity>",
+            "sales": "销量",
+            "place": "产地",
+            "description": "详情描述",
+            "production_date": "生产日期",
+            "effective_date": "有效截至日期",
+            "category": "所属类目 Category",
+            "images": "图片展示 List<String>",
+            "status": "状态（0正常  -1下架  -2删除）"
+        }
+    },
+    {
+        "name": "CouponType 优惠券类型",
+        "table": {
+            "type": "类型（1立减券  2满减券  3返现红包  4折扣券）",
+            "name": "类型名称"
+        }
+    },
+    {
+        "name": "Coupon 优惠券",
+        "table": {
+            "type": "类型（1立减券  2满减券  3返现红包  4折扣券），值是从CouponType中得到的",
+            "name": "优惠券名称",
+            "code": "券码，自动生成",
+            "exclusive": "是否是商品专属券（1是  0否）",
+            "count": "发放数量",
+            "laveCount": "剩余数量",
+            "image": "优惠券图片地址（封面）",
+            "price": "额度，就是可以优惠金额（price、discount是二选一关系）",
+            "discount": "折扣，比如0.8就是8折（price、discount是二选一关系）",
+            "minPrice": "满足多少金额才可使用优惠券（比如40，满40元才能使用）",
+            "description": "描述",
+            "deadline": "截至使用时间（deadline、days是二选一关系）",
+            "days": "自领用时日起多少天有效（deadline、days是二选一关系）"
+        }
+    },
+    {
+        "name": "UserCoupon 用户领取的优惠券",
+        "table": {
+            "type": "类型（1立减券  2满减券  3返现红包  4折扣券）",
+            "name": "优惠券名称",
+            "code": "券码，自动生成",
+            "exclusive": "是否是商品专属券（1是  0否）",
+            "image": "优惠券图片地址（封面）",
+            "price": "额度，就是可以优惠金额（price、discount是二选一关系）",
+            "discount": "折扣，比如0.8就是8折（price、discount是二选一关系）",
+            "minPrice": "满足多少金额才可使用优惠券（比如40，满40元才能使用）",
+            "description": "描述",
+            "deadline": "截至使用时间",
+            "receiveTime": "领取时间",
+            "usageTime": "使用时间",
+            "userId": "所属用户ID"
+        }
+    },
+    {
+        "name": "Cart 购物车",
+        "table": {
+            "commodity": "商品信息 Commodity",
+            "user": "所属用户 User",
+            "count": "数量",
+            "activityId": "活动ID（用户判断选择的是哪一种活动优惠）"
+        }
+    },
+    {
+        "name": "Orders 订单",
+        "table": {
+            "code": "订单编号",
+            "commodities": "商品列表 List<OrderCommodity>",
+            "address": "订单配送地址 OrderAddress（同Address）",
+            "payment": "支付方式（1在线支付  2货到付款）",
+            "count": "商品总数量",
+            "price": "商品总金额",
+            "freight": "运费",
+            "coupon": "优惠金额",
+            "totalPrice": "订单总金额",
+            "status": "状态（-2删除，-1取消订单，0刚下单（待付款），1已付款 、2待发货(商家确认)、3待收货、4完成）",
+            "user": "所属用户 User",
+            "coupons": "使用的优惠券 List<UserCoupon>",
+            "createTime": "创建时间"
+        }
+    },
+    {
+        "name": "OrderCommodity 订单商品",
+        "table": {
+            "commodity": "商品信息 Commodity",
+            "count": "购买数量",
+            "price": "购买时的价格（售价或者活动价）"
+        }
+    },
+    {
+        "name": "User 用户信息",
+        "table": {
+            "name": "用户名",
+            "nickname": "昵称",
+            "avatar": "头像地址",
+            "mobile": "电话",
+            "email": "邮箱",
+            "type": "用户类型（0管理员  1普通用户  2会员）",
+            "status": "状态（0正常  -1停用  -2删除）"
+        }
+    },
+    {
+        "name": "Address 收货地址",
+        "table": {
+            "name": "收货人姓名",
+            "mobile": "手机号",
+            "province": "省",
+            "city": "市",
+            "district": "区",
+            "address": "详细地址",
+            "userId": "所属用户ID",
+            "preferred": "是否是首选地址（1是首选  0不是）"
+        }
+    }
+]
