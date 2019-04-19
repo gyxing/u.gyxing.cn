@@ -1,134 +1,259 @@
 [
     {
-        "name": "Category 类目信息",
-        "table": {
-            "name": "类目名称",
-            "image": "图标地址",
-            "pid": "上级pid",
-            "description": "描述",
-            "sort": "序号（升序排序）"
-        }
+        "name": "Category 类目",
+        "tables": [
+            {
+                "name": "Category 类目信息",
+                "fields": {
+                    "name": "类目名称",
+                    "image": "图标地址",
+                    "pid": "上级pid",
+                    "description": "描述",
+                    "sort": "序号（升序排序）"
+                }
+            }
+        ]
     },
     {
-        "name": "Commodity 商品信息",
-        "table": {
-            "name": "商品名称",
-            "sku_name": "展示用商品名称（如：名称+规格+其他描述）",
-            "code": "商品码",
-            "price": "售价",
-            "cost_price": "进货价",
-            "activities": "活动信息集合 List<CommodityActivity>",
-            "sales": "销量",
-            "place": "产地",
-            "description": "详情描述",
-            "production_date": "生产日期",
-            "effective_date": "有效截至日期",
-            "category": "所属类目 Category",
-            "images": "图片展示 List<String>",
-            "status": "状态（0正常  -1下架  -2删除）"
-        }
-    },
-    {
-        "name": "CouponType 优惠券类型",
-        "table": {
-            "type": "类型（1立减券  2满减券  3返现红包  4折扣券）",
-            "name": "类型名称"
-        }
+        "name": "Commodity 商品",
+        "tables": [
+            {
+                "name": "Commodity 商品信息",
+                "fields": {
+                    "name": "商品名称",
+                    "skuName": "展示用商品名称（如：名称+规格+其他描述）",
+                    "code": "商品码",
+                    "price": "售价",
+                    "costPrice": "进货价",
+                    "activities": "活动信息集合 List<CommodityActivity>",
+                    "sales": "销量",
+                    "place": "产地",
+                    "description": "详情描述",
+                    "productionDate": "生产日期",
+                    "effectiveDate": "有效截至日期",
+                    "category": "所属类目 Category",
+                    "images": "图片展示 List<String>",
+                    "status": "状态（0正常  -1下架  -2删除）"
+                }
+            },
+            {
+                "name": "CommodityActivity 商品的活动信息",
+                "fields": {
+                    "activityId": "活动ID",
+                    "type": "活动类型",
+                    "name": "活动名称",
+                    "price": "活动价",
+                    "startTime": "开始时间",
+                    "endTime": "结束时间"
+                }
+            }
+        ]
     },
     {
         "name": "Coupon 优惠券",
-        "table": {
-            "type": "类型（1立减券  2满减券  3返现红包  4折扣券），值是从CouponType中得到的",
-            "name": "优惠券名称",
-            "code": "券码，自动生成",
-            "exclusive": "是否是商品专属券（1是  0否）",
-            "count": "发放数量",
-            "laveCount": "剩余数量",
-            "image": "优惠券图片地址（封面）",
-            "price": "额度，就是可以优惠金额（price、discount是二选一关系）",
-            "discount": "折扣，比如0.8就是8折（price、discount是二选一关系）",
-            "minPrice": "满足多少金额才可使用优惠券（比如40，满40元才能使用）",
-            "description": "描述",
-            "deadline": "截至使用时间（deadline、days是二选一关系）",
-            "days": "自领用时日起多少天有效（deadline、days是二选一关系）"
-        }
-    },
-    {
-        "name": "UserCoupon 用户领取的优惠券",
-        "table": {
-            "type": "类型（1立减券  2满减券  3返现红包  4折扣券）",
-            "name": "优惠券名称",
-            "code": "券码，自动生成",
-            "exclusive": "是否是商品专属券（1是  0否）",
-            "image": "优惠券图片地址（封面）",
-            "price": "额度，就是可以优惠金额（price、discount是二选一关系）",
-            "discount": "折扣，比如0.8就是8折（price、discount是二选一关系）",
-            "minPrice": "满足多少金额才可使用优惠券（比如40，满40元才能使用）",
-            "description": "描述",
-            "deadline": "截至使用时间",
-            "receiveTime": "领取时间",
-            "usageTime": "使用时间",
-            "userId": "所属用户ID"
-        }
+        "tables": [
+            {
+                "name": "CouponType 优惠券类型",
+                "fields": {
+                    "type": "类型（1立减券  2满减券  3返现红包  4折扣券）",
+                    "name": "类型名称"
+                }
+            },
+            {
+                "name": "Coupon 优惠券",
+                "fields": {
+                    "type": "类型（1立减券  2满减券  3返现红包  4折扣券），值是从CouponType中得到的",
+                    "name": "优惠券名称",
+                    "code": "券码，自动生成",
+                    "exclusive": "是否是商品专属券（1是  0否）",
+                    "count": "发放数量",
+                    "laveCount": "剩余数量",
+                    "image": "优惠券图片地址（封面）",
+                    "price": "额度，就是可以优惠金额（price、discount是二选一关系）",
+                    "discount": "折扣，比如0.8就是8折（price、discount是二选一关系）",
+                    "minPrice": "满足多少金额才可使用优惠券（比如40，满40元才能使用）",
+                    "description": "描述",
+                    "deadline": "截至使用时间（deadline、days是二选一关系）",
+                    "days": "自领用时日起多少天有效（deadline、days是二选一关系）"
+                }
+            },
+            {
+                "name": "UserCoupon 用户领取的优惠券",
+                "fields": {
+                    "type": "类型（1立减券  2满减券  3返现红包  4折扣券）",
+                    "name": "优惠券名称",
+                    "code": "券码，自动生成",
+                    "exclusive": "是否是商品专属券（1是  0否）",
+                    "image": "优惠券图片地址（封面）",
+                    "price": "额度，就是可以优惠金额（price、discount是二选一关系）",
+                    "discount": "折扣，比如0.8就是8折（price、discount是二选一关系）",
+                    "minPrice": "满足多少金额才可使用优惠券（比如40，满40元才能使用）",
+                    "description": "描述",
+                    "deadline": "截至使用时间",
+                    "receiveTime": "领取时间",
+                    "usageTime": "使用时间",
+                    "userId": "所属用户ID"
+                }
+            }
+        ]
     },
     {
         "name": "Cart 购物车",
-        "table": {
-            "commodity": "商品信息 Commodity",
-            "user": "所属用户 User",
-            "count": "数量",
-            "activityId": "活动ID（用户判断选择的是哪一种活动优惠）"
-        }
+        "tables": [
+            {
+                "name": "Cart 购物车",
+                "fields": {
+                    "commodity": "商品信息 Commodity",
+                    "user": "所属用户 User",
+                    "count": "数量",
+                    "activityId": "活动ID（用户判断选择的是哪一种活动优惠）"
+                }
+            }
+        ]
     },
     {
         "name": "Orders 订单",
-        "table": {
-            "code": "订单编号",
-            "commodities": "商品列表 List<OrderCommodity>",
-            "address": "订单配送地址 OrderAddress（同Address）",
-            "payment": "支付方式（1在线支付  2货到付款）",
-            "count": "商品总数量",
-            "price": "商品总金额",
-            "freight": "运费",
-            "coupon": "优惠金额",
-            "totalPrice": "订单总金额",
-            "status": "状态（-2删除，-1取消订单，0刚下单（待付款），1已付款 、2待发货(商家确认)、3待收货、4完成）",
-            "user": "所属用户 User",
-            "coupons": "使用的优惠券 List<UserCoupon>",
-            "createTime": "创建时间"
-        }
-    },
-    {
-        "name": "OrderCommodity 订单商品",
-        "table": {
-            "commodity": "商品信息 Commodity",
-            "count": "购买数量",
-            "price": "购买时的价格（售价或者活动价）"
-        }
+        "tables": [
+            {
+                "name": "Orders 订单",
+                "fields": {
+                    "code": "订单编号",
+                    "commodities": "商品列表 List<OrderCommodity>",
+                    "address": "订单配送地址 OrderAddress（同Address）",
+                    "payment": "支付方式（1在线支付  2货到付款）",
+                    "count": "商品总数量",
+                    "price": "商品总金额",
+                    "freight": "运费",
+                    "coupon": "优惠金额",
+                    "totalPrice": "订单总金额",
+                    "status": "状态（-2删除，-1取消订单，0刚下单（待付款），1已付款 、2待发货(商家确认)、3待收货、4完成）",
+                    "user": "所属用户 User",
+                    "coupons": "使用的优惠券 List<UserCoupon>",
+                    "createTime": "创建时间"
+                }
+            },
+            {
+                "name": "OrderCommodity 订单商品",
+                "fields": {
+                    "commodity": "商品信息 Commodity",
+                    "count": "购买数量",
+                    "price": "购买时的价格（售价或者活动价）"
+                }
+            }
+        ]
     },
     {
         "name": "User 用户信息",
-        "table": {
-            "name": "用户名",
-            "nickname": "昵称",
-            "avatar": "头像地址",
-            "mobile": "电话",
-            "email": "邮箱",
-            "type": "用户类型（0管理员  1普通用户  2会员）",
-            "status": "状态（0正常  -1停用  -2删除）"
-        }
+        "tables": [
+            {
+                "name": "User 用户信息",
+                "fields": {
+                    "name": "用户名",
+                    "nickname": "昵称",
+                    "avatar": "头像地址",
+                    "mobile": "电话",
+                    "email": "邮箱",
+                    "type": "用户类型（0管理员  1普通用户  2会员）",
+                    "status": "状态（0正常  -1停用  -2删除）"
+                }
+            }
+        ]
     },
     {
         "name": "Address 收货地址",
-        "table": {
-            "name": "收货人姓名",
-            "mobile": "手机号",
-            "province": "省",
-            "city": "市",
-            "district": "区",
-            "address": "详细地址",
-            "userId": "所属用户ID",
-            "preferred": "是否是首选地址（1是首选  0不是）"
-        }
+        "tables": [
+            {
+                "name": "Address 收货地址",
+                "fields": {
+                    "name": "收货人姓名",
+                    "mobile": "手机号",
+                    "province": "省",
+                    "city": "市",
+                    "district": "区",
+                    "address": "详细地址",
+                    "userId": "所属用户ID",
+                    "preferred": "是否是首选地址（1是首选  0不是）"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Activity 活动",
+        "tables": [
+            {
+                "name": "ActivityType 活动类型",
+                "fields": {
+                    "type": "活动类型，目前只有团购，值为1",
+                    "name": "活动名称"
+                }
+            },
+            {
+                "name": "Activity 活动信息",
+                "fields": {
+                    "type": "活动类型",
+                    "name": "名称",
+                    "description": "描述",
+                    "discount": "商品折扣",
+                    "count": "如是拼团活动，则这里是要求的拼团人数",
+                    "commodities": "活动商品集合  List<Commodity>",
+                    "startTime": "开始时间",
+                    "endTime": "结束时间"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Cookbook 菜谱",
+        "tables": [
+            {
+                "name": "Cookbook 菜谱信息",
+                "fields": {
+                    "title": "标题 ",
+                    "image": "封面图片地址",
+                    "images": "展示图片地址集合",
+                    "content": "内容",
+                    "pv": "浏览数",
+                    "user": "作者 <User>",
+                    "commodity": "所属商品 <Commodity>",
+                    "loves": "点赞数 List<CookbookLove>",
+                    "createTime": "创建时间"
+                }
+            },
+            {
+                "name": "CookbookLove 菜谱点赞统计",
+                "fields": {
+                    "cookbookId": "菜谱ID",
+                    "userId": "用户ID",
+                    "createTime": "点赞时间"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Team 拼团",
+        "tables": [
+            {
+                "name": "Team 拼团信息",
+                "fields": {
+                    "activityId": "活动ID",
+                    "commodityId": "商品ID",
+                    "count": "人数限制",
+                    "status": "状态：0拼团中  1完成拼团（已下单）",
+                    "users": "组员 List<TeamUser>"
+                }
+            },
+            {
+                "name": "TeamUser 组员信息",
+                "fields": {
+                    "userId": "用户ID",
+                    "userName": "用户名",
+                    "nickName": "用户昵称",
+                    "leader": "是否是团长（1是 0否）",
+                    "status": "状态： 0组团中  1已完成（已下单）",
+                    "createTime": "加团时间",
+                    "completeTime": "完成时间"
+                }
+            }
+        ]
     }
 ]
