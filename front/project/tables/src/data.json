@@ -65,7 +65,8 @@
                     "type": "类型（1立减券  2满减券  3返现红包  4折扣券），值是从CouponType中得到的",
                     "name": "优惠券名称",
                     "code": "券码，自动生成",
-                    "exclusive": "是否是商品专属券（1是  0否）",
+                    "exclusive": "是否是商品专属券？（1是  0否）",
+                    "alone": "不可与其他优惠共用？（1是 0否）",
                     "count": "发放数量",
                     "laveCount": "剩余数量",
                     "image": "优惠券图片地址（封面）",
@@ -84,6 +85,7 @@
                     "name": "优惠券名称",
                     "code": "券码，自动生成",
                     "exclusive": "是否是商品专属券（1是  0否）",
+                    "alone": "不可与其他优惠共用？（1是 0否）",
                     "image": "优惠券图片地址（封面）",
                     "price": "额度，就是可以优惠金额（price、discount是二选一关系）",
                     "discount": "折扣，比如0.8就是8折（price、discount是二选一关系）",
@@ -129,6 +131,7 @@
                     "status": "状态（-2删除，-1取消订单，0刚下单（待付款），1已付款 、2待发货(商家确认)、3待收货、4完成）",
                     "user": "所属用户 User",
                     "coupons": "使用的优惠券 List<UserCoupon>",
+                    "team": "不为空就是拼团订单 Team",
                     "createTime": "创建时间"
                 }
             },
@@ -190,7 +193,7 @@
             {
                 "name": "Activity 活动信息",
                 "fields": {
-                    "type": "活动类型",
+                    "type": "活动类型 ActivityType",
                     "name": "名称",
                     "description": "描述",
                     "discount": "商品折扣",
@@ -198,33 +201,6 @@
                     "commodities": "活动商品集合  List<Commodity>",
                     "startTime": "开始时间",
                     "endTime": "结束时间"
-                }
-            }
-        ]
-    },
-    {
-        "name": "Cookbook 菜谱",
-        "tables": [
-            {
-                "name": "Cookbook 菜谱信息",
-                "fields": {
-                    "title": "标题 ",
-                    "image": "封面图片地址",
-                    "images": "展示图片地址集合",
-                    "content": "内容",
-                    "pv": "浏览数",
-                    "user": "作者 <User>",
-                    "commodity": "所属商品 <Commodity>",
-                    "loves": "点赞数 List<CookbookLove>",
-                    "createTime": "创建时间"
-                }
-            },
-            {
-                "name": "CookbookLove 菜谱点赞统计",
-                "fields": {
-                    "cookbookId": "菜谱ID",
-                    "userId": "用户ID",
-                    "createTime": "点赞时间"
                 }
             }
         ]
@@ -248,10 +224,48 @@
                     "userId": "用户ID",
                     "userName": "用户名",
                     "nickName": "用户昵称",
-                    "leader": "是否是团长（1是 0否）",
-                    "status": "状态： 0组团中  1已完成（已下单）",
+                    "avatar": "头像地址",
+                    "status": "状态（ 0已组团但没完成支付、1已组团且已完成支付）",
                     "createTime": "加团时间",
                     "completeTime": "完成时间"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Cookbook 菜谱",
+        "tables": [
+            {
+                "name": "Cookbook 菜谱",
+                "fields": {
+                    "title": "标题",
+                    "image": "封面图片",
+                    "images": "图片展示",
+                    "summary": "简介",
+                    "ingredients": "主料",
+                    "excipient": "辅料",
+                    "content": "内容",
+                    "tags": "标签（多个标签用英文逗号分隔）",
+                    "categoryId": "所属分类ID",
+                    "commodityId": "所属商品ID",
+                    "star": "推荐星级",
+                    "way": "烹饪方法",
+                    "taste": "口味",
+                    "time": "烹饪所需时间（如：<30分钟）",
+                    "heat": "热量",
+                    "pv": "浏览数",
+                    "loves": "收藏数",
+                    "loveUsers": "收藏记录列表",
+                    "user": "作者",
+                    "createTime": "创建时间"
+                }
+            },
+            {
+                "name": "CookbookLove 菜谱收藏统计",
+                "fields": {
+                    "cookbookId": "菜谱ID",
+                    "userId": "用户ID",
+                    "createTime": "收藏时间"
                 }
             }
         ]
