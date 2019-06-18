@@ -255,8 +255,8 @@
                     "heat": "热量",
                     "pv": "浏览数",
                     "loves": "收藏数",
-                    "loveUsers": "收藏记录列表",
-                    "user": "作者",
+                    "loveUsers": "收藏记录列表 List<CookbookLove>",
+                    "user": "作者 User",
                     "createTime": "创建时间"
                 }
             },

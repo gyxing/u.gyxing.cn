@@ -25,4 +25,18 @@ app.post('/cssprefixer', (req, res) => {
     UtilsService.getCssPreFixer(req, res)
 });
 
+/**
+ * 请求转发
+ * @api {POST} /utils/proxy 请求转发
+ * @apiDescription 请求转发
+ * @apiName proxy
+ * @apiParam {String} url body，请求url
+ * @apiSampleRequest /utils/proxy
+ * @apiGroup utils
+ * @apiVersion 1.0.0
+ */
+app.post('/proxy', (req, res) => {
+    UtilsService.proxy(req, res)
+});
+
 module.exports = app;

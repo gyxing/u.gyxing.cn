@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "title": "debug api",
-  "url" : "http://localhost:8100/rest",
-  "sampleUrl": "http://localhost:8100/rest",
+  "url" : "http://localhost:8200/rest",
+  "sampleUrl": "http://localhost:8200/rest",
   "forceLanguage":"zh-cn",
   "template": {
     "withCompare": true,
