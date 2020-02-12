@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <meta name="applicable-device" content="mobile">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,address=no">
+    <title>查询预约日志</title>
+    <style>
+        #btn {
+            margin: 20px;
+        }
+        #content {
+            font-size: 14px;
+            padding: 15px 10px;
+        }
+        #content > div {
+            margin: 4px 0;
+            border-bottom: 1px solid #f1f1f1;
+            padding: 4px 0;
+        }
+    </style>
+</head>
+<body>
+
+<button id="btn">点击查询</button>
+<div id="content"></div>
+
+<script type="text/javascript">
+    (function () {
+
+        refresh();
+
+        document.getElementById('btn').addEventListener('click', refresh, false);
+
+        function refresh() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', `/rest/masks/logs?${(new Date()).getTime()}`);
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var res = JSON.parse(xhr.responseText);
+                        console.log(res.data)
+                        document.getElementById('content').innerHTML = res.data.map(d => `<div>${d}</div>`).join('');
+                    }
+                }
+            }
+        }
+    })()
+</script>
+</body>
+</html>
